@@ -34,8 +34,10 @@
 #' get_perutimber_data(splist)
 #' }
 #'
-get_perutimber_dat <- function(splist, max_distance = 0.2){
-  result <- pt_sps_search(splist = splist, max_distance = max_distance)
-  cbind(name_submited = result[!is.na(result$accepted_name), 1],
-        perutimber::perutimber_data[perutimber::perutimber_data$accepted_name %in% result$accepted_name])
+get_perutimber_data <- function(splist, max_distance = 0.2){
+  sps_result <- pt_sps_search(splist = splist, max_distance = max_distance)
+  result <- cbind(name_submitted = sps_result[!is.na(sps_result$accepted_name), 1],
+        perutimber::perutimber_data[perutimber::perutimber_data$accepted_name %in% sps_result$accepted_name,])
+  rownames(result) <- NULL
+  return(result)
 }

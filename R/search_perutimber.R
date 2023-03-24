@@ -52,3 +52,5 @@ search_perutimber <- function(splist, max_distance = 0.2){
   result <- pt_sps_search(splist = splist, max_distance = max_distance)
   return(as.character(!is.na(result$accepted_name)))
 }
+
+

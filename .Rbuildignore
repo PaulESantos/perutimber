@@ -1,10 +1,6 @@
-^efmaype\.Rproj$
+^perutimber\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^cran-comments\.md$
 ^\.github$
-code_deprecated
-pdf
-data_raw
-^data-raw$

@@ -4,6 +4,7 @@
 ^README\.Rmd$
 ^cran-comments\.md$
 ^\.github$
-^code_deprecated
-^pdf
-^data_raw
+code_deprecated
+pdf
+data_raw
+^data-raw$

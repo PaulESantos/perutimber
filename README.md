@@ -9,6 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/perutimber)](https://CRAN.R-project.org/package=perutimber)
+[![R-CMD-check](https://github.com/PaulESantos/perutimber/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/perutimber/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The R package, `perutimber`, provides easy access to taxonomic

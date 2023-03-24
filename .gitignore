@@ -3,4 +3,5 @@
 .Rdata
 .httr-oauth
 .DS_Store
-^code_deprecated
+code_deprecated
+data_raw

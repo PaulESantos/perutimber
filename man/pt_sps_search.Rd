@@ -28,7 +28,7 @@ whether the binomial name was exactly matched (TRUE), or if it is misspelled
 (FALSE).}
 }
 \value{
-A data frame with the following columns:
+A data frame
 See \code{\link[perutimber:tab_perutimber]{perutimber::tab_perutimber}} for more
 details.
 }
@@ -51,26 +51,10 @@ Note that only binomial names with valid characters are allowed in this
 function.
 }
 \examples{
-# Search one species
-pt_sps_search("Aa argyrolepis")
-
-# Search one species with misspelled name
-pt_sps_search("Aa argyrolepise", show_correct = TRUE)
-pt_sps_search("Aa argyrolepise", max_distance = 2)
-
-# Search for a variety
-pt_sps_search("Hibiscus abelmoschus var. betulifolius Mast.")
-
-# Search for multiple species
-splist <- c(
-"Hibiscus abelmoschus var. betulifolius Mast.",
-"Hibiscus abutiloides Willd.",
-"Hibiscus aculeatus",
-"Hibiscus acuminatus",
-"Hibiscus furcatuis" # This is a wrong name
-)
-mult <- pt_sps_search(splist, max_distance = 0.2)
-
+#splist <- c("Euterpe precatoria var. precatorio",
+#            "Welfia alfredi",
+#             "Hibiscus abelmoschus var. betulifolius")
+#pt_sps_search(splist)
 }
 \references{
 Vásquez Martínez and Rojas Gonzáles (2022) titled "Catálogo de las
@@ -78,3 +62,4 @@ especies forestales maderables de la Amazonía y la Yunga Peruana" in Revista
 Forestal del Perú 37(3, Número Especial): 5-138
 https://revistas.lamolina.edu.pe/index.php/rfp/article/view/1956.
 }
+\keyword{internal}

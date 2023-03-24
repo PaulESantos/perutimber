@@ -78,3 +78,30 @@
 #' str(tab_perutimber_position)
 "tab_perutimber_position"
 
+#' List of Plant Species Name and information from the Catalogue of the timber forest
+#' species of the Amazon and the Peruvian Yunga.
+#'
+#' The 'perutimber_dat' contains information from the Catalogue of the timber forest
+#' species of the Amazon and the Peruvian Yunga.
+#'
+#' @name perutimber_data
+#' @docType data
+#' @format A tibble with the following columns:
+#'   \describe{\item{accepted_name}{A character vector. The list of the accepted plant taxa names according to the Taxonomic Name Resolution Service - TNRS.}
+#'   \item{accepted_name_author}{A character vector. The corresponding author name of the accepted_name, staying empty if the taxonomic_status is "Synonym" or "No opinion".}
+#'   \item{accepted_family}{A character vector. The corresponding family name of the accepted_name.}
+#'   \item{common_name}{A character vector. Listed all common names for each species.}
+#'   \item{accepted_name_rank}{A character vector. Information about infraspecific status.}
+#'   \item{habit}{A character vector.}
+#'   \item{plant_height_m}{A character vector. The plant height range in meters.}
+#'   \item{regions}{A character vector.}
+#'   \item{elevation}{A character vector.}
+#'   \item{uses}{A character vector.}}
+#'
+#' @keywords datasets
+#' @examples
+#'
+#' data(perutimber_data)
+#' str(perutimber_data)
+"perutimber_data"
+

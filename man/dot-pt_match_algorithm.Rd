@@ -6,7 +6,14 @@
 Author: Bruno Vilela
 The matching algorithm}
 \usage{
-.pt_match_algorithm(splist_class, max.distance)
+.pt_match_algorithm(
+  splist_class,
+  max_distance,
+  progress_bar = FALSE,
+  keep_closest = TRUE,
+  genus_fuzzy = TRUE,
+  grammar_check = FALSE
+)
 }
 \description{
 Code for the algorithms to exactly and fuzzy match names

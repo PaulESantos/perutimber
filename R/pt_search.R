@@ -39,7 +39,7 @@
 #' Note that only binomial names with valid characters are allowed in this
 #' function.
 #'
-#' @return A data frame with the following columns:
+#' @return A data frame
 #' See \code{\link[perutimber:tab_perutimber]{perutimber::tab_perutimber}} for more
 #' details.
 #'
@@ -49,27 +49,11 @@
 #' https://revistas.lamolina.edu.pe/index.php/rfp/article/view/1956.
 #'
 #' @examples
-#' # Search one species
-#' pt_sps_search("Aa argyrolepis")
-#'
-#' # Search one species with misspelled name
-#' pt_sps_search("Aa argyrolepise", show_correct = TRUE)
-#' pt_sps_search("Aa argyrolepise", max_distance = 2)
-#'
-#' # Search for a variety
-#' pt_sps_search("Hibiscus abelmoschus var. betulifolius Mast.")
-#'
-#' # Search for multiple species
-#' splist <- c(
-#' "Hibiscus abelmoschus var. betulifolius Mast.",
-#' "Hibiscus abutiloides Willd.",
-#' "Hibiscus aculeatus",
-#' "Hibiscus acuminatus",
-#' "Hibiscus furcatuis" # This is a wrong name
-#' )
-#' mult <- pt_sps_search(splist, max_distance = 0.2)
-#'
-#'@export
+#' #splist <- c("Euterpe precatoria var. precatorio",
+#' #            "Welfia alfredi",
+#' #             "Hibiscus abelmoschus var. betulifolius")
+#' #pt_sps_search(splist)
+#' @keywords internal
 
 pt_sps_search <- function(splist,
                         max_distance = 0.2,
@@ -99,7 +83,7 @@ pt_sps_search <- function(splist,
     result_final <- NULL
     ## Return the matrix with matched species
   } else {
-    comb_match <- matching[, -(1:2), drop = FALSE]
+    comb_match <- matching[, -(1:2), drop = FALSE]#matching[, -(1:2), drop = FALSE]
     # keep homonyms to the warning
     ho_pos <- ncol(comb_match)
     homonyms <- as.logical(comb_match[, ho_pos])
@@ -114,8 +98,8 @@ pt_sps_search <- function(splist,
     # Transform in data.frame
     comb_match <- as.data.frame(comb_match)
     names_col <-
-      colnames(perutimber::perutimber_sps_class)[-c(1,
-                                                    ncol(perutimber::perutimber_sps_class))]
+  colnames(perutimber::perutimber_sps_class)[-c(1,
+                              ncol(perutimber::perutimber_sps_class))]
 
     colnames(comb_match) <- paste(names_col, "match", sep = "_")
 
@@ -144,7 +128,7 @@ pt_sps_search <- function(splist,
 
   # If no match, give a warning
   if (is.null(result_final)) {
-    warning(paste0("No match found for the species list provided.",
+      warning(paste0("No match found for the species list provided.",
                    " Try increasing the 'max_distance' argument."))
   } else {
     if (show_correct) {
@@ -154,3 +138,4 @@ pt_sps_search <- function(splist,
   }
   return(result_final)
 }
+

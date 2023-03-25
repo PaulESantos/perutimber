@@ -31,4 +31,46 @@ You can install the development version of `perutimber` like so:
 pak::pak("PaulESantos/perutimber")
 ```
 
-## Example
+## Basic usage
+
+- Check if species name it listed in the data base:
+
+```{r sps_search}
+library(perutimber)
+sps_list <- c("Pentaplaris davidsmithii", 
+              "Quararibea wittiia",
+              "Sterculia tessmanni", 
+              "Sterculia tessmannia", 
+              "Brosimum alicastrum subsp. bolivarense",
+              "Brosimum alicastrum sub bolivarense",
+              "Poa annua")
+
+```
+ -  `perutimber::search_perutimber` function can be used over a vector of species names. You can pass a character vector containing multiple species names as an argument to the function, and it will check whether each of those species names is listed in the data. The function will return a character vector indicating whether each species name is present or not. Here's an example:
+ 
+```{r vect_search}
+perutimber::search_perutimber(splist = sps_list)
+```
+ - `perutimber::search_perutimber` can be used with a data.frame or tibble. Here's an example of how to use it:
+ 
+```{r tbl_search}
+ # base R
+sps_df <- data.frame(sps_list)
+sps_df
+sps_df$review <- perutimber::search_perutimber(splist = sps_list)
+sps_df
+ # tidyverse - tibble
+sps_tbl <- tibble::tibble(sps_list)
+sps_tbl |> 
+  dplyr::mutate(review = perutimber::search_perutimber(splist = sps_list))
+
+```
+
+- `perutimber::get_perutimber_data()` allows access to information provided in the "Catalogue of the timber forest species of the Amazon and the Peruvian Yunga", to obtain information for a specific species, a species name vector must be provided as input. The function returns a data frame containing basic information for each species, such as its common and scientific names.
+
+```{r get_data}
+perutimber::get_perutimber_data(sps_list)
+
+```
+
+

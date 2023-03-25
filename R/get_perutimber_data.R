@@ -36,8 +36,19 @@
 #'
 get_perutimber_data <- function(splist, max_distance = 0.2){
   sps_result <- pt_sps_search(splist = splist, max_distance = max_distance)
-  result <- cbind(name_submitted = sps_result[!is.na(sps_result$accepted_name), 1],
-        perutimber::perutimber_data[perutimber::perutimber_data$accepted_name %in% sps_result$accepted_name,])
+  submitted_names = sps_result[!is.na(sps_result$accepted_name), 1]#,
+  names_accepted <-  sps_result[!is.na(sps_result$accepted_name), 8]#
+  output_matrix <- matrix(nrow = length(submitted_names), ncol = 10 )
+  for (i in seq_along(names_accepted)) {
+    sps_x <- as.matrix(perutimber::perutimber_data[perutimber::perutimber_data$accepted_name == names_accepted[i],])
+    output_matrix[i,] <- sps_x
+  }
+  colnames(output_matrix) <- c( "accepted_name", "accepted_name_author", "accepted_family",
+                                "common_name", "accepted_name_rank", "habit",
+                                "plant_height_m", "regions", "elevation_m",
+                                "uses")
+  result <- cbind(data.frame(names_submitted = submitted_names),
+                  output_matrix)
   rownames(result) <- NULL
   return(result)
 }

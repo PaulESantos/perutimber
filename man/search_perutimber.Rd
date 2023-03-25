@@ -24,10 +24,12 @@ change (insertion, deletion, or substitution). A max_distance = 2, allows two
 changes.}
 }
 \value{
-A logical vector, TRUE indicates whether the species name is present in the
-'Catalogue of the timber forest species of the Amazon and the Peruvian Yunga',
-considering exact and fuzzy matching of species names. If the species name is
-not listed, the logical vector is FALSE.
+A character vector that can have three different output values. The first
+value, "Present," indicates whether the species name is fully matched with the
+names listed in the 'Catalogue of the timber forest species of the Amazon and the
+Peruvian Yunga'. The second value, "P_updated_name," provides a fuzzy matching of
+species names. If a species name is not listed in the catalogue, the third value
+returned will be an empty string.
 }
 \description{
 This function takes a species list and tries to match a name in the Catalogue

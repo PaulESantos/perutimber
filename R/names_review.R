@@ -20,7 +20,7 @@ morf_sps_omit <- function(x){
 #' @keywords internal
 #'
 standardize_infrasps <- function(x){
-  infra_subsp <- gsub(paste0(c(" subsp ", " ssp ", " ssp. ", " spp ", " spp. "),
+  infra_subsp <- gsub(paste0(c(" subsp ", " ssp ", " ssp. ", " spp ", " spp. ", " sub "),
                              collapse = "|"),
                       " subsp. ",
                       x)

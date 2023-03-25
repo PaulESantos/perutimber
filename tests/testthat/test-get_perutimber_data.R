@@ -6,7 +6,7 @@ test_that("it returns the correct output", {
               "Welfia alfredi",
               "Hibiscus abelmoschus var. betulifolius")
 
-  expected <- data.frame(name_submitted = c("Euterpe precatoria var. precatorio",
+  expected <- data.frame(names_submitted = c("Euterpe precatoria var. precatorio",
                                             "Welfia alfredi"),
                          accepted_name = c("Euterpe precatoria var. precatoria",
                                            "Welfia alfredii"),
@@ -21,5 +21,6 @@ test_that("it returns the correct output", {
                          uses = c("madera aserrada", "con aptitud maderable"))
 
   result <- get_perutimber_data(splist)
+
   expect_equal(result, expected)
 })

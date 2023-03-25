@@ -21,10 +21,12 @@
 #' change (insertion, deletion, or substitution). A max_distance = 2, allows two
 #' changes.
 #'
-#' @return A logical vector, TRUE indicates whether the species name is present in the
-#'  'Catalogue of the timber forest species of the Amazon and the Peruvian Yunga',
-#'   considering exact and fuzzy matching of species names. If the species name is
-#'   not listed, the logical vector is FALSE.
+#' @return A character vector that can have three different output values. The first
+#' value, "Present," indicates whether the species name is fully matched with the
+#' names listed in the 'Catalogue of the timber forest species of the Amazon and the
+#' Peruvian Yunga'. The second value, "P_updated_name," provides a fuzzy matching of
+#' species names. If a species name is not listed in the catalogue, the third value
+#' returned will be an empty string.
 #'
 #' @export
 #'
@@ -50,7 +52,21 @@
 
 search_perutimber <- function(splist, max_distance = 0.2){
   result <- pt_sps_search(splist = splist, max_distance = max_distance)
-  return(as.character(!is.na(result$accepted_name)))
+  compara <- result$accepted_name == result$name_submitted
+  output_result <- vector()
+  for(i in seq_along(splist)){
+
+    if( isTRUE(compara[i] == TRUE)){
+      output_result[i] <- "Present"
+    }
+    else if(isTRUE(compara[i] == FALSE)){
+      output_result[i]<- "P_updated_name"
+    }
+    else if(is.na(compara[i])){
+      output_result[i] <- ""
+    }
+  }
+  return(output_result)
 }
 
 

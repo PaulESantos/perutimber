@@ -14,11 +14,6 @@ status](https://www.r-pkg.org/badges/version/perutimber)](https://CRAN.R-project
 [![R-CMD-check](https://github.com/PaulESantos/perutimber/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/perutimber/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-<style>
-body {
-text-align: justify}
-</style>
-
 The R package, `perutimber`, provides easy access to taxonomic
 information for over 1,300 vascular plant species found in the
 **“Catalogue of the timber forest species of the Amazon and the Peruvian

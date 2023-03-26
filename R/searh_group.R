@@ -1,27 +1,3 @@
-#' Function to wrap .pt_group_ind for multiple names
-#' @keywords internal
-.pt_group <- function(group_names,
-                        group_ref,
-                        max_distance) {
-  # group_names = list of names to be searched
-  # group_ref = reference species name
-  # max_distance = fuzzy match distance allowed
-
-  # Length of group names
-  n_groups <- length(group_names)
-  # Object to keep the results
-  groups_pos <- numeric(n_groups)
-  # Loop over all names applying the individual function
-  for (i in 1:n_groups) {
-    groups_pos[i] <- .pt_group_ind(group_names[i],
-                                     group_ref,
-                                     max_distance)
-  }
-  # Result the position in the list
-  return(groups_pos)
-}
-
-
 #' Function to search species names,
 #' based on group (genus, family, order)
 #' @keywords internal

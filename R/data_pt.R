@@ -50,6 +50,7 @@
 #' data(perutimber_sps_class)
 #'
 "perutimber_sps_class"
+
 #' List of the number positions of the first 3 letters of the species name in
 #' the tab_perutimber
 #'

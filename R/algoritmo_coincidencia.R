@@ -1,8 +1,7 @@
-#' Code for the algorithms to exactly and fuzzy match names
-#' Author: Bruno Vilela
-#' The matching algorithm
-#' @keywords internal
-.pt_match_algorithm  <- function(splist_class,
+
+#-------------------------------------------------------#
+# The matching algorithm
+.match_algorithm  <- function(splist_class,
                               max_distance,
                               progress_bar = FALSE,
                               keep_closest = TRUE,
@@ -32,32 +31,32 @@
     if (!check_non_defined) {
       # Search genus position
       max_distance2 <- ifelse(genus_fuzzy, max_distance, 0)
-      pos_genus_pre <- .pt_group_ind(
+      pos_genus_pre <- .lcvp_group_ind(
         group_name = splist_class_i[2],
         group_ref = perutimber::tab_perutimber_position$genus,
         max_distance2,
         only_one = FALSE,
         closest = TRUE
       )
-      pos_genus <- .pt_genus_search(pos_genus_pre)
+      pos_genus <- .genus_search(pos_genus_pre)
 
       if (!any(is.na(pos_genus))) {
         # Try exact match first
-        exact[i,] <- .pt_exact_match(splist_class_i,
+        exact[i,] <- .exact_match(splist_class_i,
                                   pos_genus,
                                   n_class)
         # Try common grammar errors
         if (any(is.na(exact[i, ])) & grammar_check) {
-          epis <- .pt_sub_common(splist_class_i[3])
+          epis <- .sub_common(splist_class_i[3])
           if (length(epis) > 0) {
             names_grammar <- paste(splist_class_i[2],
                                    epis)
-            splist_class_i_mult <- .pt_splist_classify(names_grammar)
+            splist_class_i_mult <- .splist_classify(names_grammar)
             n_gram <- length(names_grammar)
             temp <- matrix(nrow = n_gram,
                            ncol = length(exact[i, ]))
             for (k in seq_len(n_gram)) {
-              temp[k, ] <- .pt_exact_match(splist_class_i_mult[k, ],
+              temp[k, ] <- .exact_match(splist_class_i_mult[k, ],
                                         pos_genus,
                                         n_class)
             }
@@ -76,7 +75,7 @@
 
         # Try fuzzy
         if (any(is.na(exact[i, ])) & max_distance > 0) {
-          exact[i,] <- .pt_fuzzy_match(splist_class_i,
+          exact[i,] <- .fuzzy_match(splist_class_i,
                                     pos_genus,
                                     max_distance,
                                     n_class,
@@ -84,19 +83,6 @@
                                     max_distance2 = max_distance2)
         }
       }
-      ## may improve match performance (a little), but consumes more
-      ## computational time; turned off.
-      # else {
-      #
-      #   if (max_distance2 > 0) {
-      #     # Fuzzy if did not find the genus
-      #     exact[i,] <- .fuzzy_match(splist_class_i,
-      #                               pos_genus = NULL,
-      #                               max_distance,
-      #                               n_class,
-      #                               keep_closest = keep_closest)
-      #   }
-      # }
     }
     if (progress_bar) {
       utils::setTxtProgressBar(pb, i)
@@ -113,7 +99,7 @@
 
 #-------------------------------------------------------#
 # Exact match function
-.pt_exact_match <- function(splist_class_i,
+.exact_match <- function(splist_class_i,
                          pos_genus,
                          n_class,
                          fuzzy = FALSE) {
@@ -181,7 +167,7 @@
 
 #-------------------------------------------------------#
 # Fuzzy matching function
-.pt_fuzzy_match <- function(splist_class_i,
+.fuzzy_match <- function(splist_class_i,
                          pos_genus = NULL,
                          max_distance,
                          n_class,
@@ -195,7 +181,7 @@
     name1 <- paste(splist_class_i[2], splist_class_i[3])
     name2 <- paste(perutimber::perutimber_sps_class[pos_genus, 2],
                    perutimber::perutimber_sps_class[pos_genus, 3])
-    fuzzy_match <- .pt_agrep_whole(name1,
+    fuzzy_match <- .agrep_whole(name1,
                                 name2,
                                 max_distance = max_distance)
   }
@@ -205,7 +191,7 @@
     name1 <- paste(splist_class_i[2], splist_class_i[3])
     name2 <- paste(perutimber::perutimber_sps_class[, 2],
                    perutimber::perutimber_sps_class[, 3])
-    fuzzy_match <- .pt_agrep_whole(name1,
+    fuzzy_match <- .agrep_whole(name1,
                                 name2,
                                 max_distance = max_distance2)
   }
@@ -228,7 +214,7 @@
     res_fuzzy <- matrix(nrow = n_pos_genus, ncol = n_class + 1)
 
     for (i in seq_len(n_pos_genus)) {
-      res_fuzzy[i, ] <- .pt_exact_match(splist_class_i,
+      res_fuzzy[i, ] <- .exact_match(splist_class_i,
                                      pos_genus[i],
                                      n_class,
                                      fuzzy = TRUE)
@@ -244,7 +230,7 @@
     if (!return_all) {
       if (length(pos_genus2) > 1) {
         sub_tab <- perutimber::tab_perutimber[res_fuzzy[pos_genus2, 1], ]
-        pos_genus2 <- which(sub_tab$Status == "Accepted")
+        pos_genus2 <- which(sub_tab$taxonomic_status == "Accepted")
         res_fuzzy[, n_class + 1] <- TRUE # homonyms to TRUE
         if (length(pos_genus2) == 0) {
           pos_genus2 <- 1

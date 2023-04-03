@@ -1,7 +1,31 @@
-#' Function to search species names,
-#' based on group (genus, family, order)
-#' @keywords internal
-.pt_group_ind <- function(group_name,
+#-------------------------------------------------------#
+# Function to wrap .lcvp_group_ind for multiple names
+.lcvp_group <- function(group_names,
+                        group_ref,
+                        max_distance) {
+  # group_names = list of names to be searched
+  # group_ref = reference species name
+  # max_distance = fuzzy match distance allowed
+
+  # Length of group names
+  n_groups <- length(group_names)
+  # Object to keep the results
+  groups_pos <- numeric(n_groups)
+  # Loop over all names applying the individual function
+  for (i in 1:n_groups) {
+    groups_pos[i] <- .lcvp_group_ind(group_names[i],
+                                     group_ref,
+                                     max_distance)
+  }
+  # Result the position in the list
+  return(groups_pos)
+}
+
+
+#-------------------------------------------------------#
+# Function to search species names,
+# based on group (genus, family, order)
+.lcvp_group_ind <- function(group_name,
                             group_ref,
                             max_distance,
                             only_one = TRUE,
@@ -11,7 +35,7 @@
   # Fuzzy match if it did not work
   if (length(group_pos) == 0) {
     if (max_distance > 0) {
-      group_pos <- .pt_agrep_whole(group_name,
+      group_pos <- .agrep_whole(group_name,
                                 group_ref,
                                 max_distance = max_distance)
       closest1 <- utils::adist(group_name, group_ref[group_pos])

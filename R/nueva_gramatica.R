@@ -1,12 +1,12 @@
 # Find a pattern at the end of the character
-.pt_find_mat <- function(x, pattern) {
+.find_mat <- function(x, pattern) {
   n_c <- nchar(x)
   n_p <- nchar(pattern) - 1
   return(substr(x, n_c - n_p, n_c) == pattern)
 }
 
 # find lati or late
-.pt_sub_lat <- function(x) {
+.sub_lat <- function(x) {
   if (all(substr(x, 1, 4) %in% c("LATE", "LATI"))) {
     substring(x, 1, 4) <- "LATE"
     x2 <- x
@@ -18,19 +18,19 @@
 }
 
 # Find which pattern matched
-.pt_find_common <- function(x) {
-  ei <- .pt_find_mat(x, "EI")
-  ii <- .pt_find_mat(x, "II")
-  i <- .pt_find_mat(x, "I") & !ii & !ei
-  iae <- .pt_find_mat(x, "IAE")
-  ae <- .pt_find_mat(x, "AE") & !iae
-  iifolia <- .pt_find_mat(x, "IIFOLIA")
-  iiflora <- .pt_find_mat(x, "IIFLORA")
-  ifolia <- .pt_find_mat(x, "IFOLIA") & !iifolia
-  iflora <- .pt_find_mat(x, "IFLORA") & !iiflora
-  iodes <- .pt_find_mat(x, "IODES")
-  oides <- .pt_find_mat(x, "OIDES")
-  odes <- .pt_find_mat(x, "ODES") & !iodes
+.find_common <- function(x) {
+  ei <- .find_mat(x, "EI")
+  ii <- .find_mat(x, "II")
+  i <- .find_mat(x, "I") & !ii & !ei
+  iae <- .find_mat(x, "IAE")
+  ae <- .find_mat(x, "AE") & !iae
+  iifolia <- .find_mat(x, "IIFOLIA")
+  iiflora <- .find_mat(x, "IIFLORA")
+  ifolia <- .find_mat(x, "IFOLIA") & !iifolia
+  iflora <- .find_mat(x, "IFLORA") & !iiflora
+  iodes <- .find_mat(x, "IODES")
+  oides <- .find_mat(x, "OIDES")
+  odes <- .find_mat(x, "ODES") & !iodes
   stats::setNames(
     c(ei, ii, i, iae, ae, iifolia, iiflora, ifolia, iflora,
       iodes, oides, odes),
@@ -40,9 +40,9 @@
 }
 
 # Substitute
-.pt_sub_common <- function(x) {
+.sub_common <- function(x) {
   x0 <- x
-  commons <- which(.pt_find_common(x))
+  commons <- which(.find_common(x))
   n_c <- nchar(x)
   n_p <- nchar(names(commons))
   if (length(n_p) != 0) {
@@ -64,6 +64,7 @@
       )
     x <- paste0(base_str, names(sub_str)[sub_str[[commons]]])
   }
-  result <- .pt_sub_lat(x)
+  result <- .sub_lat(x)
   return(result[result != x0])
 }
+

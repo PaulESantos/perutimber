@@ -1,6 +1,8 @@
 
 #------------------------------------------------
 # Function wrap of .classify_algo for multiple species
+#' @keywords internal
+
 .splist_classify <- function(x) {
   # Infrataxa identifiers
   infrasp <- c("subsp.", "ssp.", "var.", "subvar.",
@@ -46,6 +48,7 @@
 
 #------------------------------------------------
 # The algorithm for one name
+#' @keywords internal
 .classify_algo <- function(x_split_i,
                            Infrasp_cat_reg) {
 

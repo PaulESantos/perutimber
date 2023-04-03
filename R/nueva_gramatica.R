@@ -1,4 +1,5 @@
 # Find a pattern at the end of the character
+#' @keywords internal
 .find_mat <- function(x, pattern) {
   n_c <- nchar(x)
   n_p <- nchar(pattern) - 1
@@ -18,6 +19,7 @@
 }
 
 # Find which pattern matched
+#' @keywords internal
 .find_common <- function(x) {
   ei <- .find_mat(x, "EI")
   ii <- .find_mat(x, "II")
@@ -40,6 +42,7 @@
 }
 
 # Substitute
+#' @keywords internal
 .sub_common <- function(x) {
   x0 <- x
   commons <- which(.find_common(x))

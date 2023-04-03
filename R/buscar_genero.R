@@ -1,5 +1,6 @@
 #-------------------------------------------------------#
 # Function to wrap .genus_search for multiple genus names
+#' @keywords internal
 .genus_search_multiple <- function(gen_pos) {
   # Length of genus positions
   n_positions <- length(gen_pos)
@@ -19,6 +20,7 @@
 
 #-------------------------------------------------------#
 # Transform group match into actual genus positions
+#' @keywords internal
 .genus_search <- function(group_pos) {
   #group_pos = result from group_search
   if (all(is.na(group_pos))) {

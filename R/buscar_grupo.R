@@ -1,6 +1,6 @@
 #-------------------------------------------------------#
 # Function to wrap .lcvp_group_ind for multiple names
-.lcvp_group <- function(group_names,
+.group_pt <- function(group_names,
                         group_ref,
                         max_distance) {
   # group_names = list of names to be searched
@@ -13,7 +13,7 @@
   groups_pos <- numeric(n_groups)
   # Loop over all names applying the individual function
   for (i in 1:n_groups) {
-    groups_pos[i] <- .lcvp_group_ind(group_names[i],
+    groups_pos[i] <- .group_ind(group_names[i],
                                      group_ref,
                                      max_distance)
   }
@@ -25,7 +25,8 @@
 #-------------------------------------------------------#
 # Function to search species names,
 # based on group (genus, family, order)
-.lcvp_group_ind <- function(group_name,
+#' @keywords internal
+.group_ind <- function(group_name,
                             group_ref,
                             max_distance,
                             only_one = TRUE,

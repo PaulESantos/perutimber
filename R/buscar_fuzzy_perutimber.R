@@ -1,6 +1,5 @@
-
-
-lcvp_fuzzy_search <- function(splist,
+#' @keywords internal
+pt_fuzzy_search <- function(splist,
                               max_distance = 0.2,
                               genus_fuzzy = FALSE,
                               status = c( "Accepted",
@@ -37,7 +36,7 @@ lcvp_fuzzy_search <- function(splist,
 
   for (i in 1:n_sps) {
     result[[i]] <-
-      .lcvp_fuzzy_search_ind(species_class[i, , drop = FALSE],
+      .fuzzy_search_ind(species_class[i, , drop = FALSE],
                              max_distance,
                              status,
                              keep_closest,
@@ -62,12 +61,9 @@ lcvp_fuzzy_search <- function(splist,
   return(result)
 }
 
-
-
-
 #----------------------------------------------------
-
-.lcvp_fuzzy_search_ind <- function(species_class,
+#' @keywords internal
+.fuzzy_search_ind <- function(species_class,
                                    max_distance,
                                    status,
                                    keep_closest,
@@ -82,7 +78,7 @@ lcvp_fuzzy_search <- function(splist,
     # Now match
     ## Get the genus  first
     max_distance2 <- ifelse(genus_fuzzy, max_distance, 0)
-    gen_number <- .lcvp_group_ind(species_class[1, 2],
+    gen_number <- .group_ind(species_class[1, 2],
                                   perutimber::tab_perutimber_position$genus,
                                   max_distance = max_distance2,
                                   FALSE)
@@ -130,7 +126,7 @@ lcvp_fuzzy_search <- function(splist,
 
 
 # -------------------------------------------------------------------------
-
+#' @keywords internal
 
 .check_status <- function(status) {
 

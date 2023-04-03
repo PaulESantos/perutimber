@@ -51,7 +51,7 @@
 #'
 
 search_perutimber <- function(splist, max_distance = 0.2){
-  result <- pt_sps_search(splist = splist, max_distance = max_distance)
+  result <- search_pt(splist = splist, max_distance = max_distance)
   compara <- result$accepted_name == result$name_submitted
   output_result <- vector()
   for(i in seq_along(splist)){

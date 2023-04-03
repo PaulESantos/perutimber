@@ -35,7 +35,7 @@
 #' }
 #'
 get_perutimber_data <- function(splist, max_distance = 0.2){
-  sps_result <- pt_sps_search(splist = splist, max_distance = max_distance)
+  sps_result <- search_pt(splist = splist, max_distance = max_distance)
   submitted_names = sps_result[!is.na(sps_result$accepted_name), 1]#,
   names_accepted <-  sps_result[!is.na(sps_result$accepted_name), 8]#
   output_matrix <- matrix(nrow = length(submitted_names), ncol = 10 )

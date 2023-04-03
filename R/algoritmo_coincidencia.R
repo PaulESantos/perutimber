@@ -1,6 +1,5 @@
-
-#-------------------------------------------------------#
-# The matching algorithm
+#' The matching algorithm
+#' @keywords internal
 .match_algorithm  <- function(splist_class,
                               max_distance,
                               progress_bar = FALSE,
@@ -31,7 +30,7 @@
     if (!check_non_defined) {
       # Search genus position
       max_distance2 <- ifelse(genus_fuzzy, max_distance, 0)
-      pos_genus_pre <- .lcvp_group_ind(
+      pos_genus_pre <- .group_ind(
         group_name = splist_class_i[2],
         group_ref = perutimber::tab_perutimber_position$genus,
         max_distance2,
@@ -99,6 +98,7 @@
 
 #-------------------------------------------------------#
 # Exact match function
+#' @keywords internal
 .exact_match <- function(splist_class_i,
                          pos_genus,
                          n_class,
@@ -167,6 +167,7 @@
 
 #-------------------------------------------------------#
 # Fuzzy matching function
+#' @keywords internal
 .fuzzy_match <- function(splist_class_i,
                          pos_genus = NULL,
                          max_distance,

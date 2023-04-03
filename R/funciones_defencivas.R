@@ -1,6 +1,7 @@
 
 #-------------------------------------------------------#
 # Function to check list of names input
+#' @keywords internal
 .names_check <- function(splist,
                          argument_name) {
 
@@ -26,6 +27,7 @@
 
 #-------------------------------------------------------#
 # Check if names are binomial
+#' @keywords internal
 .check_binomial <- function(splist_class, splist) {
 
   missing_bino <- which(apply(splist_class[, 2:3, drop = FALSE],
@@ -41,6 +43,7 @@
 }
 #-------------------------------------------------------#
 # Make names standard
+#' @keywords internal
 .names_standardize <- function(splist) {
   fixed1 <- toupper(splist) # all up
   fixed2 <- gsub("CF\\.", "", fixed1)
@@ -65,6 +68,7 @@
 
 #-------------------------------------------------------#
 # Function to match the closest fuzzy name
+#' @keywords internal
 .agrep_whole <- function(x, y, max_distance) {
   if (max_distance < 1 & max_distance > 0) {
     max_distance <- ceiling(nchar(x) * max_distance)

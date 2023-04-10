@@ -3,4 +3,4 @@
 .Rdata
 .httr-oauth
 .DS_Store
-^tab_perutimber\.xlsx$
+tab_perutimber.xlsx

@@ -5,3 +5,6 @@
 ^cran-comments\.md$
 ^\.github$
 ^tab_perutimber\.xlsx$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

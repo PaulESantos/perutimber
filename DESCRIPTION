@@ -20,3 +20,5 @@ BugReports: https://github.com/PaulESantos/perutimber/issues
 LazyData: true
 LazyDataCompression: xz
 Date: 2023-03-25
+Imports: 
+    lifecycle

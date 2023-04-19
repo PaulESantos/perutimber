@@ -2,3 +2,4 @@
 
 export(get_perutimber_data)
 export(search_perutimber)
+importFrom(lifecycle,deprecated)

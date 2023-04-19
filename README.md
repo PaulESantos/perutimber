@@ -8,10 +8,13 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/perutimber)](https://CRAN.R-project.org/package=perutimber)
 [![R-CMD-check](https://github.com/PaulESantos/perutimber/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/perutimber/actions/workflows/R-CMD-check.yaml)
+[![Project Status: Active - The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- badges: end -->
 
 The R package, `perutimber`, provides easy access to taxonomic

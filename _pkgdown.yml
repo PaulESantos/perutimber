@@ -2,3 +2,5 @@ url: https://paulesantos.github.io/perutimber/
 template:
   bootstrap: 5
 
+development:
+  mode: auto

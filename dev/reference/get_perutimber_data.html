@@ -93,12 +93,22 @@ changes.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="va">splist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Euterpe precatoria var. precatorio"</span>,</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">splist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Euterpe precatoria var. precatorio"</span>,</span></span>
 <span class="r-in"><span>            <span class="st">"Welfia alfredi"</span>,</span></span>
 <span class="r-in"><span>            <span class="st">"Hibiscus abelmoschus var. betulifolius"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_perutimber_data</span><span class="op">(</span><span class="va">splist</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                      names_submitted                      accepted_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Euterpe precatoria var. precatorio Euterpe precatoria var. precatoria</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                     Welfia alfredi                    Welfia alfredii</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    accepted_name_author accepted_family         common_name accepted_name_rank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             Arecaceae Huasaí, Saké, Tsáke            variety</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 A.J. Hend. &amp; Villalba       Arecaceae              Camona            species</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           habit plant_height_m             regions     elevation_m</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Palma arbórea   8-18(-25) m. AM, LO, MD, PA, SM. 100-1000(-2000)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Palma arbórea  10-20(-25) m.                 PA.       1400-1700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    uses</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       madera aserrada</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 con aptitud maderable</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -107,7 +117,7 @@ changes.</p></dd>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Paul Efren Santos Andrade.</p>
+  <p></p><p>Developed by Paul E. Santos Andrade.</p>
 </div>
 
 <div class="pkgdown-footer-right">

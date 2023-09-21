@@ -12,9 +12,8 @@ stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecy
 [![CRAN
 status](https://www.r-pkg.org/badges/version/perutimber)](https://CRAN.R-project.org/package=perutimber)
 [![R-CMD-check](https://github.com/PaulESantos/perutimber/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/perutimber/actions/workflows/R-CMD-check.yaml)
-[![Project Status: Active - The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/perutimber?color=green)](https://cran.r-project.org/package=perutimber)
+[![](http://cranlogs.r-pkg.org/badges/last-week/perutimber?color=green)](https://cran.r-project.org/package=perutimber)
 <!-- badges: end -->
 
 The R package, `perutimber`, provides easy access to taxonomic
@@ -30,7 +29,16 @@ explore and analyze the timber plant species.
 
 ## Installation
 
-You can install the development version of `perutimber` like so:
+You can install the `perutimber` package from CRAN using:
+
+``` r
+install.packages("perutimber")
+# or
+pak::pak("perutimber")
+```
+
+Also you can install the `perutimber` package from GitHub using the
+following command:
 
 ``` r
 pak::pak("PaulESantos/perutimber")

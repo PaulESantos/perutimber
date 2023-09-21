@@ -27,12 +27,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' splist <- c("Euterpe precatoria var. precatorio",
 #'             "Welfia alfredi",
 #'             "Hibiscus abelmoschus var. betulifolius")
 #' get_perutimber_data(splist)
-#' }
 #'
 get_perutimber_data <- function(splist, max_distance = 0.2){
   sps_result <- search_pt(splist = splist, max_distance = max_distance)

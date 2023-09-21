@@ -48,11 +48,6 @@
 #' Forestal del Perú 37(3, Número Especial): 5-138
 #' https://revistas.lamolina.edu.pe/index.php/rfp/article/view/1956.
 #'
-#' @examples
-#' #splist <- c("Euterpe precatoria var. precatorio",
-#' #            "Welfia alfredi",
-#' #             "Hibiscus abelmoschus var. betulifolius")
-#' #search_pt(splist)
 #' @keywords internal
 search_pt <- function(splist,
                         max_distance = 0.2,

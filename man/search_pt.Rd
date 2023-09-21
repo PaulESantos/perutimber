@@ -57,12 +57,6 @@ maximum distance defined in \code{max_distance}.
 Note that only binomial names with valid characters are allowed in this
 function.
 }
-\examples{
-#splist <- c("Euterpe precatoria var. precatorio",
-#            "Welfia alfredi",
-#             "Hibiscus abelmoschus var. betulifolius")
-#search_pt(splist)
-}
 \references{
 Vásquez Martínez and Rojas Gonzáles (2022) titled "Catálogo de las
 especies forestales maderables de la Amazonía y la Yunga Peruana" in Revista

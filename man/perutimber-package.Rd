@@ -4,9 +4,9 @@
 \name{perutimber-package}
 \alias{perutimber}
 \alias{perutimber-package}
-\title{perutimber: Catalogue Of The Timber Forest Species Of The Amazon And The Peruvian Yunga}
+\title{perutimber: Catalogue of the Timber Forest Species of the Peruvian Amazon}
 \description{
-The data of the Catalogue Of The Timber Forest Species Of The Amazon And The Peruvian Yunga.
+Access the data of the 'Catalogue of the Timber Forest Species of the Peruvian Amazon' Vásquez Martínez, R., & Rojas Gonzáles, R.D.P.(2022)\doi{10.21704/rfp.v37i3.1956}.
 }
 \seealso{
 Useful links:
@@ -18,7 +18,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Paul Efren Santos Andrade \email{paulefrens@gmail.com} (\href{https://orcid.org/0000-0002-6635-0375}{ORCID})
+\strong{Maintainer}: Paul E. Santos Andrade \email{paulefrens@gmail.com} (\href{https://orcid.org/0000-0002-6635-0375}{ORCID})
 
 }
 \keyword{internal}

@@ -31,7 +31,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#'
 #' # Search for multiple species vector
 #' splist <- c("Euterpe precatoria var. precatorio",
 #'             "Welfia alfredi",
@@ -42,14 +42,7 @@
 #' # base
 #' df_splist <- data.frame(splist = splist)
 #' df_splist$peutimber <- search_perutimber(df_splist$splist)
-#' # dplyr
-#' # df_splist <- data.frame(splist = splist)
-#' # dplyr::mutate(df_splist,
-#' #               perutimber = search_perutimber(splist))
 #'
-#' }
-#'
-
 search_perutimber <- function(splist, max_distance = 0.2){
   result <- search_pt(splist = splist, max_distance = max_distance)
   compara <- result$accepted_name == result$name_submitted

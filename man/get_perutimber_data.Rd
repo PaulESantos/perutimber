@@ -33,11 +33,9 @@ be the duplicated in accepted_name column, else the accepted_name column will
 display the closest name given the maximum distance defined in \code{max_distance}
 }
 \examples{
-\dontrun{
 splist <- c("Euterpe precatoria var. precatorio",
             "Welfia alfredi",
             "Hibiscus abelmoschus var. betulifolius")
 get_perutimber_data(splist)
-}
 
 }

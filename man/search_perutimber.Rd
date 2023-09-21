@@ -37,7 +37,7 @@ of the timber forest species of the Amazon and the Peruvian Yunga, checking
 if the name is listed in tha dataset.
 }
 \examples{
-\dontrun{
+
 # Search for multiple species vector
 splist <- c("Euterpe precatoria var. precatorio",
             "Welfia alfredi",
@@ -48,11 +48,5 @@ get_perutimber_data(splist)
 # base
 df_splist <- data.frame(splist = splist)
 df_splist$peutimber <- search_perutimber(df_splist$splist)
-# dplyr
-# df_splist <- data.frame(splist = splist)
-# dplyr::mutate(df_splist,
-#               perutimber = search_perutimber(splist))
-
-}
 
 }

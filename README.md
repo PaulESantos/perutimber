@@ -77,6 +77,7 @@ perutimber::search_perutimber(splist = sps_list)
 
 ``` r
  # base R
+
 sps_df <- data.frame(sps_list)
 sps_df
 #>                                 sps_list
@@ -97,7 +98,9 @@ sps_df
 #> 5 Brosimum alicastrum subsp. bolivarense        Present
 #> 6    Brosimum alicastrum sub bolivarense P_updated_name
 #> 7                              Poa annua
+
  # tidyverse - tibble
+
 sps_tbl <- tibble::tibble(sps_list)
 sps_tbl |> 
   dplyr::mutate(review = perutimber::search_perutimber(splist = sps_list))

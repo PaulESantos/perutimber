@@ -60,20 +60,26 @@ sps_list <- c("Pentaplaris davidsmithii",
               "Poa annua")
 
 ```
+
  -  `perutimber::search_perutimber` function can be used over a vector of species names. You can pass a character vector containing multiple species names as an argument to the function, and it will check whether each of those species names is listed in the data. The function will return a character vector indicating whether each species name is present or not. Here's an example:
+
  
 ```{r vect_search}
 perutimber::search_perutimber(splist = sps_list)
 ```
+
  - `perutimber::search_perutimber` can be used with a data.frame or tibble. Here's an example of how to use it:
  
 ```{r tbl_search}
  # base R
+
 sps_df <- data.frame(sps_list)
 sps_df
 sps_df$review <- perutimber::search_perutimber(splist = sps_list)
 sps_df
+
  # tidyverse - tibble
+
 sps_tbl <- tibble::tibble(sps_list)
 sps_tbl |> 
   dplyr::mutate(review = perutimber::search_perutimber(splist = sps_list))

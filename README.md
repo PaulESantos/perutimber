@@ -33,7 +33,9 @@ You can install the `perutimber` package from CRAN using:
 
 ``` r
 install.packages("perutimber")
+
 # or
+
 pak::pak("perutimber")
 ```
 
